@@ -15,7 +15,7 @@ function PostItem(props) {
                 创建人：<span>{post.author.username}</span>
             </div>
             <div>
-                更新时间：<span>{getFormatDate(post.updateAt)}</span>
+                更新时间：<span>{getFormatDate(post.updatedAt)}</span>
             </div>
             <div className="like">
                 <span>

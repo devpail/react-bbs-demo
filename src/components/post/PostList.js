@@ -45,6 +45,7 @@ class PostList extends React.Component{
     refreshPostList() {
         //调用后台API获取列表
         get(url.getPostList()).then(data=>{
+            console.info(data);
             if(!data.error){
                 this.setState({
                     posts:data,

@@ -15,7 +15,7 @@ function CommentsView(props) {
                         <div className="sub">
                             <span>{item.author.username}</span>
                             <span>.</span>
-                            <span>{getFormatDate(item.updateAt)}</span>
+                            <span>{getFormatDate(item.updatedAt)}</span>
                         </div>
                     </li>
                 )
