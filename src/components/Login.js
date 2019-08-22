@@ -1,8 +1,8 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import {post} from "../utils/request";
 import url from  "../utils/url"
+import './Login.css'
 
 class Login extends React.Component{
     constructor(props){

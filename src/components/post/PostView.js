@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 import PostItem from './PostItem'
+import './PostView.css'
 
 class PostView extends React.Component{
     render() {

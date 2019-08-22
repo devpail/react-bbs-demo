@@ -1,10 +1,11 @@
 import React from 'react'
 import {getFormatDate} from "../../../utils/date";
+import './CommentsView.css'
 
 function CommentsView(props) {
     const {comments} = this.props;
     return(
-        <ul className="CommentsView">
+        <ul className="comments-view">
             {comments.map(item=>{
                 return(
                     <li key={item.id}>

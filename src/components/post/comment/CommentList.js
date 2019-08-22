@@ -1,5 +1,6 @@
 import React from 'react'
 import CommentsView from "./CommentView";
+import './CommentList.css'
 
 class CommentList extends React.Component{
     constructor(props) {

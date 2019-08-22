@@ -1,13 +1,14 @@
 import React from 'react'
 import {getFormatDate} from '../../utils/date'
 import like from "../../images/like.png"
+import './PostItem.css'
 
 //不负责业务逻辑，只关注组件的渲染，因此使用一个无状态的函数组件实现
 function PostItem(props) {
     const {post} = props;
     return(
         <li className="post-item">
-            <div className="post-title">
+            <div className="title">
                 {post.title}
             </div>
             <div>

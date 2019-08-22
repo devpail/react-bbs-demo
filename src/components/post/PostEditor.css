@@ -1,10 +1,10 @@
-.postEditor input{
+.post-editor input{
   margin: 10px auto;
   width: 100%;
   line-height: 1.5em;
 }
 
-.postEditor textarea{
+.post-editor textarea{
   margin-bottom: 10px;
   height: 100px;
   width: 100%;

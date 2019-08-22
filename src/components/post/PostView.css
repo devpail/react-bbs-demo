@@ -1,36 +1,36 @@
-.postView .mark {
+.post-view .mark {
   color: grey;
   margin-bottom: 20px; 
 }
 
-.postView .mark span {
+.post-view .mark span {
   margin-right: 5px;
 }
 
-.postView .mark .author {
+.post-view .mark .author {
   font-size: 1.2em;
   font-weight: bold;
   color: #009a61;
 }
 
-.postView .content {
+.post-view .content {
   color: grey;
   margin-bottom: 20px;
 }
 
-.postView .vote {
+.post-view .vote {
   height: 30px; 
   margin-bottom: 20px; 
 }
 
-.postView .vote span{
+.post-view .vote span{
   vertical-align: middle;
   display: table-cell;
   width: 30px;
   height: 30px;
 }
 
-.postView .vote img{
+.post-view .vote img{
   height: 30px; 
   width: 30px;
 }

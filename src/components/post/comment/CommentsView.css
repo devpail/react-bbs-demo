@@ -1,10 +1,10 @@
-.commentsView li{
+.comments-view li{
   padding: 10px 0; 
   margin: 10px;
   border-top: 1px dotted grey;
 }
 
-.commentsView .sub {
+.comments-view .sub {
    color: grey;
    font-size: 0.8em;
 }

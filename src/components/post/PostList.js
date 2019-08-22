@@ -4,6 +4,7 @@ import url from '../../utils/url'
 import {get,post} from '../../utils/request'
 import PostEditor from './PostEditor'
 import PostView from "./PostView";
+import './PostList.css'
 
 class PostList extends React.Component{
     constructor(props) {

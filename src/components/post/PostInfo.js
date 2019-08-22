@@ -5,6 +5,7 @@ import url from "../../utils/url"
 import PostEditor from "./PostEditor";
 import PostView from "./PostView";
 import CommentList from "./comment/CommentList";
+import './PostInfo.css'
 
 class PostInfo extends React.Component{
     constructor(props) {
