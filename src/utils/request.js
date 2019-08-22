@@ -62,9 +62,11 @@ const headers = new Headers({
 function handleResponse(url,response){
     if(response.status < 500){
         return response.json();
-    }else{
+    }else {
         console.error(`Request failed. Url = ${url} . Message = ${response.statusText}`);
-        return {error:{message: "Request failed due to server error "}}
+        return {
+            error: {message: "Request failed due to server error "}
+        }
     }
 
 }
@@ -72,8 +74,8 @@ function handleResponse(url,response){
 //处理catch 失败的情况
 function handlerError(url,error){
     console.error(`Request failed. Url = ${url} . Message = ${error}`);
-    return {error: {message: "Request failed."}};
+    return {error: {message: "Request failed."}}
 }
 
 
-export {get,post,put}
+export {get, post, put}
