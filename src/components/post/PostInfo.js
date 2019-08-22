@@ -25,7 +25,7 @@ class PostInfo extends React.Component{
         const editable = userId === post.author.id;
 
         return (
-            <div className="post">
+            <div className="postinfo">
                 {
                     editing ? (
                         <PostEditor

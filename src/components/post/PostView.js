@@ -11,7 +11,7 @@ class PostView extends React.Component{
                     item=>(
                         //使用Link组件包裹每一个PostItem组件
                         <Link key={item.id} to={`/posts/${item.id}`}>
-                            <PostItem/>
+                            <PostItem post={item}/>
                         </Link>
                     )
                 )}

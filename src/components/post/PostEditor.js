@@ -4,17 +4,17 @@ class PostEditor extends React.Component{
         super(props);
         const {post} = this.posts
         return (
-            <div className={"postEditor"}>
+            <div className="post-editor">
                 <input
-                    type={"text"}
-                    name={"title"}
-                    placeholder={"标题"}
+                    type="text"
+                    name="title"
+                    placeholder="标题"
                     value={this.state.title}
                     onChange={this.handleChange}
                 />
                 <textarea
-                    name={"content"}
-                    placeholder={"内容"}
+                    name="content"
+                    placeholder="内容"
                     value={this.state.content}
                     onChange={this.handleChange}
                 />

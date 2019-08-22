@@ -1,7 +1,7 @@
 //负责获取帖子列表数据、保存新建的帖子、控制PostEditor的显示与隐藏
 import React from 'react'
-import url from '../utils/url'
-import {get,post} from '../utils/request'
+import url from '../../utils/url'
+import {get,post} from '../../utils/request'
 import PostEditor from './PostEditor'
 import PostView from "./PostView";
 
@@ -12,13 +12,12 @@ class PostList extends React.Component{
             posts:[],       //保存帖子列表数据
             newPost:false   //判断当前是否正在创建新的帖子
         }
-
     }
 
     render() {
         const {userId} = this.props
         return (
-            <div className={"postList"}>
+            <div className="post-list">
                 <div>
                     <h2>帖子列表</h2>
                     {/*只有在登录状态才显示发帖按钮*/}
