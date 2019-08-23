@@ -3,7 +3,7 @@ import {getFormatDate} from "../../../utils/date";
 import './CommentsView.css'
 
 function CommentsView(props) {
-    const {comments} = this.props;
+    const {comments} = props;
     return(
         <ul className="comments-view">
             {comments.map(item=>{
@@ -13,7 +13,7 @@ function CommentsView(props) {
                             {item.content}
                         </div>
                         <div className="sub">
-                            <span>{item.author.username}</span>
+                            <span>{item.author ==null?'匿名':item.author.username}</span>
                             <span>.</span>
                             <span>{getFormatDate(item.updatedAt)}</span>
                         </div>

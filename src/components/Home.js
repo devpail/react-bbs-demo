@@ -11,6 +11,7 @@ class Home extends React.Component{
             userId: sessionStorage.getItem("userId"),
             username: sessionStorage.getItem("username")
         }
+        this.handleLogout = this.handleLogout.bind(this);
     }
     handleLogout(){
         //注销用户

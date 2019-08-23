@@ -3,7 +3,7 @@ import React from 'react'
 import url from '../../utils/url'
 import {get,post} from '../../utils/request'
 import PostEditor from './PostEditor'
-import PostView from "./PostView";
+import PostsView from "./PostsView";
 import './PostList.css'
 
 class PostList extends React.Component{
@@ -31,7 +31,7 @@ class PostList extends React.Component{
                     ) : null
                 }
                 {/*PostView显示帖子的列表数据*/}
-                <PostView posts = {this.state.posts} />
+                <PostsView posts = {this.state.posts} />
             </div>
         );
     }

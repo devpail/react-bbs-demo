@@ -9,6 +9,28 @@ class CommentList extends React.Component{
             // comments:[]
             value:""
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSave = this.handleSave.bind(this);
+    }
+
+    //处理新评论变化
+    handleChange(e){
+        this.setState({
+            value:e.target.value
+        })
+    }
+    //保存新评论
+    handleSave(e){
+        const content = this.state.value;
+        if(content.length>0){
+            //将评论提交PostInfo页面的保存方法
+            this.props.onSubmit(this.state.value);
+            this.setState({
+                value:""
+            })
+        }else{
+            alert("评论不能为空！")
+        }
     }
 
     render() {
@@ -34,24 +56,6 @@ class CommentList extends React.Component{
         );
     }
 
-    //处理新评论变化
-    handleChange(e){
-        this.setState({
-            value:e.target.value
-        })
-    }
-    //保存新评论
-    handleSave(e){
-        const content = this.state.value;
-        if(content.length>0){
-            //将评论提交PostInfo页面的保存方法
-            this.props.onSubmit(this.state.value);
-            this.setState({
-                value:""
-            })
-        }else{
-            alert("评论不能为空！")
-        }
-    }
+
 }
 export default CommentList

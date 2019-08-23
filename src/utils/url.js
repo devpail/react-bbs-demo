@@ -39,7 +39,7 @@ export default{
     //获取帖子列表
     getPostList:()=>`/post?filter=${encodeFilter(postListFilter)}`,
     //获取帖子详情
-    getPostById:id=>`post?filter=${encodeFilter(postByIdFilter(id))}`,
+    getPostById:id=>`/post?filter=${encodeFilter(postByIdFilter(id))}`,
     //新建帖子
     createPost:()=>"/post",
     //修改帖子

@@ -8,6 +8,7 @@ import {SHA1} from "./SHA1";
 
 //使用HTML5的fetch方法调用API，封装了get、post、put三个方法
 function get(url){
+    console.info("get:"+url);
     return fetch(url,{
         method:"GET",
         headers:headers,
@@ -20,6 +21,8 @@ function get(url){
 
 
 function post(url,data ) {
+    console.info("post:"+url);
+    console.info(data)
     return fetch(url,{
         method:"POST",
         headers:headers,
@@ -33,6 +36,8 @@ function post(url,data ) {
 
 
 function put(url,data) {
+    console.info("put:"+url);
+    console.info(data)
     return fetch(url,{
         method:"PUT",
         headers:headers,
@@ -61,7 +66,8 @@ const headers = new Headers({
 //处理响应结果
 function handleResponse(url,response){
     if(response.status < 500){
-        return response.json();
+        const data = response.json();
+        return data;
     }else {
         console.error(`Request failed. Url = ${url} . Message = ${response.statusText}`);
         return {

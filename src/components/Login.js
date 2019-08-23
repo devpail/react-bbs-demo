@@ -74,8 +74,9 @@ class Login extends React.Component{
                 //保存登录信息到sessionStorage
                 sessionStorage.setItem("userId",data.userId);
                 sessionStorage.setItem("username",username);
+                console.info(sessionStorage);
                 //登录成功后，设置redirectToReferrer为true
-                this.state({
+                this.setState({
                     redirectToReferrer:true
                 })
             }

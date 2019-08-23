@@ -18,7 +18,7 @@ class Header extends React.Component{
                     </span>
                     {/*用户已经登录，显示登录用户的信息；否则显示登录按钮*/}
                     {
-                        this.username && username.length > 0 ? (
+                        username && username.length > 0 ? (
                             <span className="user">
                                 当前用户：{username}&nbsp;
                                 <button onClick={onLogout}>注销</button>

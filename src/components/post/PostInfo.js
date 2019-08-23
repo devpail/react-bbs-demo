@@ -15,42 +15,12 @@ class PostInfo extends React.Component{
             comments:[],
             editing:false
         }
-    }
-
-    render() {
-        const {post, comments, editing} = this.state;
-        const {userId} = this.props;
-        if(!post) {
-            return null;
-        }
-        const editable = userId === post.author.id;
-
-        return (
-            <div className="postinfo">
-                {
-                    editing ? (
-                        <PostEditor
-                            post={post}
-                            onSave={this.handlePostInfoSave}
-                            onCancel={this.handlePostCancel}
-                        />
-                    ) : (
-                        //  PostView负责展示某一个帖子
-                        < PostView
-                            post={post}
-                            editable={editable}
-                            onEditClick={this.handleEditClick()}
-                        />
-                    )
-                }
-                <CommentList
-                    comments={comments}
-                    editable={Boolean(userId)}
-                    onSubmit={this.handleCommentSubmit()}
-                />
-
-            </div>
-        );
+        this.handleEditClick = this.handleEditClick.bind(this);
+        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+        this.handlePostInfoSave = this.handlePostInfoSave.bind(this);
+        this.handlePostCancel = this.handlePostCancel.bind(this);
+        this.refreshComments = this.refreshComments.bind(this);
+        this.refreshPostInfo = this.refreshPostInfo.bind(this);
     }
 
     //挂载完组件后Post调用后台API获取帖子详情和帖子的评论数据
@@ -77,6 +47,7 @@ class PostInfo extends React.Component{
     refreshComments(){
         const postId = this.props.match.params.id;
         get(url.getCommentList(postId)).then(data=>{
+            console.info(data);
             if(!data.error){
                 this.setState({
                     comments:data
@@ -89,22 +60,27 @@ class PostInfo extends React.Component{
 
     //让帖子处于编辑状态
     handleEditClick(){
+        console.info(this.state);
         this.setState({
             editing:true
         })
+
     }
 
     //取消编辑帖子
     handlePostCancel(){
+        console.info(this.state);
         this.setState({
             editing:false
         })
+
     }
 
     //PostEditor会调用这个方法提交修改后的帖子信息
     handlePostInfoSave(data){
+        console.info(this.props);
         const id = this.props.match.params.id;
-        this.savePost(id,data);
+        this.savePostInfo(id,data);
     }
 
     savePostInfo(id,post){
@@ -129,6 +105,7 @@ class PostInfo extends React.Component{
 
     //处理子页面的提交评论请求
     handleCommentSubmit(content){
+        console.info("handleCommentSubmit");
         const postId = this.props.match.params.id;
         const comment = {
             author: this.props.userId,
@@ -141,12 +118,51 @@ class PostInfo extends React.Component{
 
     //保存新评论到服务器
     saveComment(comment){
+        console.info("saveComment");
         post(url.createComment(),comment).then(data=>{
             if(!data.error){
                 this.refreshComments();
             }
         })
     }
+
+    render() {
+        const {post, comments, editing} = this.state;
+        const {userId} = this.props;
+        if(!post) {
+            return null;
+        }
+        const editable = userId === post.author.id;
+
+        return (
+            <div className="postinfo">
+                {
+                    editing ? (
+                        <PostEditor
+                            post={post}
+                            onSave={this.handlePostInfoSave}
+                            onCancel={this.handlePostCancel}
+                        />
+                    ) : (
+                        //  PostView负责展示某一个帖子
+                        < PostView
+                            post={post}
+                            editable={editable}
+                            onEditClick={this.handleEditClick}
+                        />
+                    )
+                }
+                <CommentList
+                    comments={comments}
+                    editable={Boolean(userId)}
+                    onSubmit={this.handleCommentSubmit}
+                />
+
+            </div>
+        );
+    }
+
+
 
 }
 
