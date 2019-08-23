@@ -13,27 +13,10 @@ class PostList extends React.Component{
             posts:[],       //保存帖子列表数据
             newPost:false   //判断当前是否正在创建新的帖子
         }
-    }
-
-    render() {
-        const {userId} = this.props
-        return (
-            <div className="post-list">
-                <div>
-                    <h2>帖子列表</h2>
-                    {/*只有在登录状态才显示发帖按钮*/}
-                    {userId ? <button onClick={this.handleNewPost}>发帖</button> : null}
-                </div>
-                {/*若当前正在创建新帖子，则渲染PostEditor组件*/}
-                {
-                    this.state.newPost ? (
-                        <PostEditor onSave={this.handleSave} onCancel={this.handleCancel}/>
-                    ) : null
-                }
-                {/*PostView显示帖子的列表数据*/}
-                <PostsView posts = {this.state.posts} />
-            </div>
-        );
+        this.handleCancel = this.handleCancel.bind(this);
+        this.handleNewPost = this.handleNewPost.bind(this);
+        this.handleSave = this.handleSave.bind(this);
+        this.refreshPostList = this.refreshPostList.bind(this);
     }
 
     //组件挂载后，调用后台API获取列表数据
@@ -85,6 +68,29 @@ class PostList extends React.Component{
             newPost: true
         })
     }
+
+    render() {
+        const {userId} = this.props
+        return (
+            <div className="post-list">
+                <div>
+                    <h2>帖子列表</h2>
+                    {/*只有在登录状态才显示发帖按钮*/}
+                    {userId ? <button onClick={this.handleNewPost}>发帖</button> : null}
+                </div>
+                {/*若当前正在创建新帖子，则渲染PostEditor组件*/}
+                {
+                    this.state.newPost ? (
+                        <PostEditor onSave={this.handleSave} onCancel={this.handleCancel}/>
+                    ) : null
+                }
+                {/*PostView显示帖子的列表数据*/}
+                <PostsView posts = {this.state.posts} />
+            </div>
+        );
+    }
+
+
 }
 
 export default PostList

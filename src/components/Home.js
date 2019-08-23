@@ -39,7 +39,7 @@ class Home extends React.Component{
                 <Route
                     path={match.url}
                     exact
-                    render={props=><PostList username={username}{...props}/>}
+                    render={props=><PostList userId={userId}{...props}/>}
                 />
 
                 {/*帖子详情路由配置*/}
